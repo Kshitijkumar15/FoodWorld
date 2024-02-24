@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "282132738323",
+    "project_id": "food-world-b08d7",
+    "storage_bucket": "food-world-b08d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282132738323:android:e2c7f9cfd7499a8c1d2ae6",
+        "android_client_info": {
+          "package_name": "com.example.foodworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl2XE291-ij_x0sV8vnpoetO6sf3Hemx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
