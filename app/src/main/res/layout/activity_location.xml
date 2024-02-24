@@ -1,0 +1,44 @@
+<!-- res/layout/activity_your_delivery.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LocationActivity">
+
+    <!-- Add your UI components and views for the food delivery activity here -->
+
+    <!-- Example: TextView to display the user's location -->
+
+    <!-- Example: Button to trigger location update -->
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="572dp"
+        android:text="User's Location: Not Available" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="334dp"
+        android:text="Update location" />
+
+
+</RelativeLayout>
