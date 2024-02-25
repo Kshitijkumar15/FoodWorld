@@ -1,11 +1,11 @@
 package com.example.foodworld
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.foodworld.databinding.ActivitySignBinding
 import com.example.foodworld.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
@@ -21,7 +21,6 @@ class SignActivity : AppCompatActivity() {
     private lateinit var email: String
     private lateinit var password: String
     private lateinit var database: DatabaseReference
-
 
     private val binding: ActivitySignBinding by lazy {
         ActivitySignBinding.inflate(layoutInflater)
@@ -41,12 +40,10 @@ class SignActivity : AppCompatActivity() {
             if (userName.isBlank() || email.isBlank() || password.isBlank()) {
                 Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show()
             } else {
-                createAccout(email, password)
+                createAccount(email, password)
             }
-
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
         }
+
         val signinButton: Button = findViewById(R.id.signinButton)
         signinButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -54,22 +51,38 @@ class SignActivity : AppCompatActivity() {
         }
     }
 
-    private fun createAccout(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+    private fun createAccount(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
+
+                    sendEmailVerification()
+                    saveUserData()
+
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "Account Creation Failed", Toast.LENGTH_SHORT).show()
+                    Log.d("Account", "createAccount: Fail", task.exception)
+                }
+            }
+    }
+
+    private fun sendEmailVerification() {
+        val firebaseUser = auth.currentUser
+        firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
-                saveUserData()
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                Toast.makeText(applicationContext, "Verification Email Sent", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Account Creation Failed", Toast.LENGTH_SHORT).show()
-                Log.d("Account", "createAccount: Fail", task.exception)
+                Toast.makeText(applicationContext, "Error Occurred while sending verification email", Toast.LENGTH_SHORT).show()
+                Log.e("EmailVerification", "sendEmailVerification: Failure", task.exception)
             }
         }
     }
 
-    //for saving data into database
+    //for saving data into the database
     private fun saveUserData() {
         userName = binding.signupUserName.text.toString().trim()
         email = binding.signupEmail.text.toString().trim()

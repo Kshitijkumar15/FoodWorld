@@ -1,14 +1,11 @@
 package com.example.foodworld
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodworld.databinding.ActivityLoginBinding
-import com.example.foodworld.databinding.ActivitySignBinding
 import com.example.foodworld.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
@@ -17,7 +14,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
 
 class LoginActivity : AppCompatActivity() {
 
@@ -89,6 +85,9 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // Send email verification
+
+
     private fun saveUserData() {
         email = binding.loginemail.text.toString().trim()
         password = binding.loginpass.text.toString().trim()
@@ -104,11 +103,3 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 }
-
-
-
-
-
-
-
-
