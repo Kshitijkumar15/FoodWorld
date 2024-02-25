@@ -55,7 +55,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="4dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/user" />
+                    android:src="@drawable/adduser" />
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

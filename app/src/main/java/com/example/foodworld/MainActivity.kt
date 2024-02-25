@@ -1,6 +1,7 @@
 package com.example.foodworld
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragmentContainerView)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNav.setupWithNavController(navController)
+
+        binding.goToAdmin.setOnClickListener {
+            val intent=Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+        }
 
         binding.notification.setOnClickListener {
             val bottomSheetDialog = notiFragment()

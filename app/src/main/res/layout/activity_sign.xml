@@ -38,7 +38,7 @@
         android:id="@+id/signupEmail"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/lshape"
         android:drawableLeft="@drawable/baseline_email_24"
         android:drawablePadding="5dp"
@@ -54,7 +54,7 @@
         android:id="@+id/signupPassword"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/lshape"
         android:drawableLeft="@drawable/pass"
         android:drawablePadding="5dp"
@@ -72,9 +72,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/lshape"
-        android:drawableLeft="@drawable/user"
         android:drawablePadding="5dp"
         android:ems="10"
+        android:drawableLeft="@drawable/user"
         android:hint="User Name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signuptext" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/googleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/gbutton"
@@ -92,21 +92,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/continueText"
-        app:layout_constraintVertical_bias="0.097"
+        app:layout_constraintVertical_bias="0.082"
         app:srcCompat="@drawable/google" />
 
     <TextView
         android:id="@+id/or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="220dp"
         android:text="or"
+        android:layout_marginTop="8dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginpass"
+        app:layout_constraintTop_toBottomOf="@+id/signupPassword"
         app:layout_constraintVertical_bias="0.036" />
 
     <TextView
@@ -128,10 +129,10 @@
         android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintHorizontal_bias="0.816"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/googleButton"
+        app:layout_constraintVertical_bias="0.157" />
 
     <Button
         android:id="@+id/signinButton"
@@ -141,10 +142,10 @@
         android:text="Sign in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/googleButton"
+        app:layout_constraintVertical_bias="0.157" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
