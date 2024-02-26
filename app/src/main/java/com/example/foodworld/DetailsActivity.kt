@@ -27,7 +27,6 @@ class DetailsActivity : AppCompatActivity() {
         foodPrice = intent.getStringExtra("MenuItemPrice")
         foodDescription = intent.getStringExtra("MenuItemDescription")
         foodImage = intent.getStringExtra("MenuItemImage")
-
         with(binding) {
             detailFoodName.text = foodName
             description.text = foodDescription

@@ -27,8 +27,8 @@ class CartFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
     private lateinit var foodNames: MutableList<String>
     private lateinit var foodPrices: MutableList<String>
-    private lateinit var foodImages: MutableList<String>
     private lateinit var foodDescriptions: MutableList<String>
+    private lateinit var foodImages: MutableList<String>
     private lateinit var quantity: MutableList<Int>
     private lateinit var cartAdapter: CartAdapter
     private lateinit var userId: String
@@ -54,7 +54,7 @@ class CartFragment : Fragment() {
         database = FirebaseDatabase.getInstance()
         userId = auth.currentUser?.uid ?: ""
         val foodRef: DatabaseReference =
-            database.reference.child("user").child(userId).child("CartItems")
+            database.reference.child("user").child(userId).child("CartItem")
         //list to store cart items
         foodNames = mutableListOf()
         foodPrices = mutableListOf()
@@ -92,12 +92,8 @@ class CartFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-              Toast.makeText(context,"Data not Fetched",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Data not Fetched", Toast.LENGTH_SHORT).show()
             }
-
         })
-
     }
-
-    companion object
 }

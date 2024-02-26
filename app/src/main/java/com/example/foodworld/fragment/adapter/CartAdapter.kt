@@ -21,8 +21,8 @@ class CartAdapter(
     private val context: Context,
     private val cartItems: MutableList<String>,
     private val cartItemPrices: MutableList<String>,
-    private val cartImages: MutableList<String>,
     private val cartDescription: MutableList<String>,
+    private val cartImages: MutableList<String>,
     private val cartQuantity: MutableList<Int>,
 
 
@@ -36,7 +36,7 @@ class CartAdapter(
         val userId = auth.currentUser?.uid ?: ""
         val cartItemNumber = cartItems.size
         itemQuantities = IntArray(cartItemNumber) { 1 }
-        cartItemReference.database.reference.child("user").child(userId).child("CartItems")
+        cartItemReference=database.reference.child("user").child(userId).child("CartItem")
     }
 
     companion object {
@@ -56,7 +56,6 @@ class CartAdapter(
 
     override fun getItemCount(): Int = cartItems.size
 
-
     inner class CartViewHolder(private val binding: CartItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SuspiciousIndentation")
@@ -65,10 +64,9 @@ class CartAdapter(
                 val quantity = itemQuantities[position]
                 cartFoodName.text = cartItems[position]
                 cartItemPrice.text = cartItemPrices[position]
-
                 val uriString = cartImages[position]
                 val uri = Uri.parse(uriString)
-                Glide.with(context).load(cartImage)
+                Glide.with(context).load(uri).into(cartImage)
                 cartQuantity.text = quantity.toString()
 
                 delete.setOnClickListener {
