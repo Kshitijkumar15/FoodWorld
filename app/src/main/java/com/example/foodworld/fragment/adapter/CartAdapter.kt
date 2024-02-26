@@ -36,7 +36,7 @@ class CartAdapter(
         val userId = auth.currentUser?.uid ?: ""
         val cartItemNumber = cartItems.size
         itemQuantities = IntArray(cartItemNumber) { 1 }
-        cartItemReference=database.reference.child("user").child(userId).child("CartItem")
+        cartItemReference = database.reference.child("user").child(userId).child("CartItem")
     }
 
     companion object {
@@ -55,6 +55,11 @@ class CartAdapter(
     }
 
     override fun getItemCount(): Int = cartItems.size
+    fun getUpdatedItemQuantities(): MutableList<Int> {
+        val itemQuantity = mutableListOf<Int>()
+        itemQuantity.addAll(cartQuantity)
+        return itemQuantity
+    }
 
     inner class CartViewHolder(private val binding: CartItemBinding) :
         RecyclerView.ViewHolder(binding.root) {

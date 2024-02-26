@@ -79,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="15dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/enterFoodPrice"
                 app:layout_constraintStart_toStartOf="@+id/enterFoodPrice"
                 app:layout_constraintTop_toBottomOf="@+id/enterFoodPrice">
@@ -87,7 +88,6 @@
                     android:id="@+id/selectImage"
                     android:layout_width="175dp"
                     android:layout_height="110dp"
-                    android:layout_marginTop="24dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/gallery">
 
@@ -113,7 +113,7 @@
             <EditText
                 android:id="@+id/descriptionEditView"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/profileedittextshape"

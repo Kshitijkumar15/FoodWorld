@@ -110,7 +110,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/pphone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
@@ -129,7 +129,7 @@
         android:layout_gravity="bottom"
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button3"
+            android:id="@+id/saveInfoButton"
             android:background="@drawable/addtocart"
             android:layout_marginBottom="40dp"
             android:elevation="5dp"
