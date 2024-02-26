@@ -44,7 +44,6 @@ class MenuFragment : BottomSheetDialogFragment() {
         val foodRef: DatabaseReference = database.reference.child("menu")
         menuItems = mutableListOf()
 
-
         foodRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (foodSnapShot in snapshot.children) {
@@ -55,15 +54,16 @@ class MenuFragment : BottomSheetDialogFragment() {
                 setAdapter()
             }
 
-            private fun setAdapter() {
-                val adapter = MenuAdapter(menuItems, requireContext())
-                binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                binding.menuRecyclerView.adapter = adapter
-            }
+
 
             override fun onCancelled(error: DatabaseError) {
             }
         })
+    }
+    private fun setAdapter() {
+        val adapter = MenuAdapter(menuItems, requireContext())
+        binding.menuRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.menuRecyclerView.adapter = adapter
     }
 
     companion object {

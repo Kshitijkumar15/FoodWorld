@@ -1,18 +1,22 @@
 package com.example.foodworld.fragment.adapter
 
+import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodworld.databinding.ActivityMain2Binding
+import com.bumptech.glide.Glide
 import com.example.foodworld.databinding.ItemBinding
+import com.example.foodworld.model.AllMenu
+import com.google.firebase.database.DatabaseReference
 
 class AllItemAdapter(
-    private val MenuItemName: ArrayList<String>,
-    private val MenuItemPrice: ArrayList<String>,
-    private val MenuItemImage: ArrayList<Int>
+    private val context: Context,
+    private val menuList: ArrayList<AllMenu>,
+    databaseReference: DatabaseReference
 ) : RecyclerView.Adapter<AllItemAdapter.AddItemViewHolder>() {
 
-    private val itemQuantities = IntArray(MenuItemName.size) { 1 }
+    private val itemQuantities = IntArray(menuList.size) { 1 }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,15 +29,19 @@ class AllItemAdapter(
         holder.bind(position)
     }
 
-    override fun getItemCount(): Int = MenuItemName.size
+    override fun getItemCount(): Int = menuList.size
     inner class AddItemViewHolder(private val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             binding.apply {
                 val quantity = itemQuantities[position]
-                foddNameTextView.text = MenuItemName[position]
-                foodPriceTextView.text = MenuItemPrice[position]
-                foodNameImageView.setImageResource(MenuItemImage[position])
+                val menuItem=menuList[position]
+                val uriString=menuItem.foodImage
+                val uri= Uri.parse(uriString)
+
+                foddNameTextView.text = menuItem.foodName
+                foodPriceTextView.text = menuItem.foodPrice
+                Glide.with(context).load(uri).into(foodNameImageView)
                 itemQuantity.text = quantity.toString()
                 delete.setOnClickListener {
                     val itemPosition=adapterPosition
@@ -58,11 +66,11 @@ class AllItemAdapter(
         }
 
         private fun delete(position: Int) {
-            MenuItemName.removeAt(position)
-            MenuItemPrice.removeAt(position)
-            MenuItemImage.removeAt(position)
+            menuList.removeAt(position)
+            menuList.removeAt(position)
+            menuList.removeAt(position)
             notifyItemRemoved(position)
-            notifyItemRangeChanged(position, MenuItemName.size)
+            notifyItemRangeChanged(position, menuList.size)
         }
 
         private fun increase(position: Int) {
