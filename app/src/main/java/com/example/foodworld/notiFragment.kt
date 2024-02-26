@@ -23,7 +23,7 @@ private lateinit var binding: FragmentNotiBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding=FragmentNotiBinding.inflate(layoutInflater,container,false)
         val notifications= listOf("Canceled","Placed","In Transit")
@@ -37,7 +37,5 @@ private lateinit var binding: FragmentNotiBinding
         return binding.root
     }
 
-    companion object {
-
-    }
+    companion object
 }

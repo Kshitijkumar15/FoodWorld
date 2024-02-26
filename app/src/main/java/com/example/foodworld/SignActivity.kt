@@ -72,15 +72,23 @@ class SignActivity : AppCompatActivity() {
     }
 
     private fun createAccount(email: String, password: String) {
+        if (password.length < 6) {
+            Toast.makeText(
+                this,
+                "Password should be at least 6 characters long",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show()
                 sendEmailVerification()
                 saveUserData()
+//                val intent = Intent(this, LoginActivity::class.java)
+//                startActivity(intent)
 
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(this, "Account Creation Failed", Toast.LENGTH_SHORT).show()
                 Log.d("Account", "createAccount: Fail", task.exception)
@@ -88,12 +96,14 @@ class SignActivity : AppCompatActivity() {
         }
     }
 
+
     private fun sendEmailVerification() {
         val firebaseUser = auth.currentUser
         firebaseUser?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Toast.makeText(applicationContext, "Verification Email Sent", Toast.LENGTH_SHORT)
                     .show()
+
             } else {
                 Toast.makeText(
                     applicationContext,
@@ -119,7 +129,7 @@ class SignActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val task =
-                    com.google.android.gms.auth.api.signin.GoogleSignIn.getSignedInAccountFromIntent(
+                    GoogleSignIn.getSignedInAccountFromIntent(
                         result.data
                     )
                 if (task.isSuccessful) {
@@ -146,14 +156,33 @@ class SignActivity : AppCompatActivity() {
             }
         }
 
+
+        // ... (your existing code)
+
     override fun onStart() {
         super.onStart()
+
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            auth.addAuthStateListener { auth ->
+                val user = auth.currentUser
+                if (user != null) {
+                    if (user.isEmailVerified) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    } else {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }
+                }
+            }
+        } else {
+            // No signed-in user, normal flow continues.
         }
     }
+
+
+
 
     private fun updateUi(user: FirebaseUser?) {
         startActivity(Intent(this, MainActivity::class.java))

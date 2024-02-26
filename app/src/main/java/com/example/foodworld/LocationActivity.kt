@@ -27,8 +27,8 @@ class LocationActivity : FragmentActivity() {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
                 ),
                 LOCATION_PERMISSION_REQUEST_CODE
             )
@@ -39,12 +39,12 @@ class LocationActivity : FragmentActivity() {
         val fineLocationPermission =
             ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             )
         val coarseLocationPermission =
             ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION
             )
 
         return fineLocationPermission == PackageManager.PERMISSION_GRANTED &&

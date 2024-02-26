@@ -30,11 +30,11 @@
                 android:text="70"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/cartitemimage"
-                app:layout_constraintTop_toBottomOf="@+id/cartItem" />
+                app:layout_constraintStart_toEndOf="@+id/cartImage"
+                app:layout_constraintTop_toBottomOf="@+id/cartFoodName" />
 
             <TextView
-                android:id="@+id/cartItem"
+                android:id="@+id/cartFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -42,11 +42,11 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/cartItemPrice"
-                app:layout_constraintStart_toEndOf="@+id/cartitemimage"
+                app:layout_constraintStart_toEndOf="@+id/cartImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/cartitemimage"
+                android:id="@+id/cartImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerInside"

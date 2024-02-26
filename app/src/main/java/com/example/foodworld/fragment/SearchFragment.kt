@@ -27,10 +27,6 @@ class SearchFragment : Fragment() {
 
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     private val filterMenuFood= mutableListOf<String>()
     private val filterMenuPrice= mutableListOf<String>()
     private val filterMenuImage= mutableListOf<Int>()
@@ -39,7 +35,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding=FragmentSearchBinding.inflate(inflater,container,false)
 //        adapter= MenuAdapter(filterMenuFood,filterMenuPrice,filterMenuImage,requireContext())
         binding.menuRecyclerView.layoutManager=LinearLayoutManager(requireContext())
@@ -93,7 +89,5 @@ class SearchFragment : Fragment() {
         adapter.notifyDataSetChanged()
     }
 
-    companion object {
-
-    }
+    companion object
 }

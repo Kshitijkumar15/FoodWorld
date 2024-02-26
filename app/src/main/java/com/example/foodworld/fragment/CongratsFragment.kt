@@ -15,15 +15,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class CongratsFragment : BottomSheetDialogFragment() {
     private lateinit var binding:FragmentCongratsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding=FragmentCongratsBinding.inflate(layoutInflater,container,false)
         binding.goHomeButton.setOnClickListener {
@@ -33,7 +28,5 @@ class CongratsFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
-    companion object {
-
-    }
+    companion object
 }

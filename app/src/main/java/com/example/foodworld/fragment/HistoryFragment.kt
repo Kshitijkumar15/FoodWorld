@@ -27,7 +27,7 @@ private lateinit var buyAgainAdapter:BuyAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding=FragmentHistoryBinding.inflate(layoutInflater,container,false)
         // Inflate the layout for this fragment
         setupRecyclerView()
@@ -43,7 +43,5 @@ private lateinit var buyAgainAdapter:BuyAdapter
 
     }
 
-    companion object {
-
-    }
+    companion object
 }
