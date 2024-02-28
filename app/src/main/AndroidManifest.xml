@@ -16,6 +16,9 @@
         android:theme="@style/Theme.FoodWorld"
         tools:targetApi="31">
         <activity
+            android:name=".RecentBuyItems"
+            android:exported="false" />
+        <activity
             android:name=".AllItemActivity"
             android:exported="false" />
         <activity

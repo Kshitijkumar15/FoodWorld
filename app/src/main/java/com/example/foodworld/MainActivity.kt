@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setupWithNavController(navController)
 
         binding.goToAdmin.setOnClickListener {
-            val intent=Intent(this,MainActivity2::class.java)
+            val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
 
