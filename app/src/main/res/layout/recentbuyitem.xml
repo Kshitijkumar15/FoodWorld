@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <androidx.cardview.widget.CardView
         android:layout_width="360dp"
@@ -20,53 +20,52 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/foodimage"
+                android:id="@+id/foodImage"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.433"
+                app:layout_constraintVertical_bias="0.5"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/foodQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="20dp"
                 android:text="3"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/foodQuantityText"
+                app:layout_constraintStart_toEndOf="@+id/quantityLabel"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.76" />
+                app:layout_constraintVertical_bias="0.746" />
 
             <TextView
                 android:id="@+id/foodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="16dp"
                 android:text="Food Name"
-                android:textColor="#000000"
-                app:layout_constraintStart_toEndOf="@+id/foodimage"
-                app:layout_constraintTop_toTopOf="@+id/foodimage" />
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/foodImage"
+                app:layout_constraintTop_toTopOf="@+id/foodImage" />
 
             <TextView
-                android:id="@+id/foodQuantityText"
+                android:id="@+id/quantityLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:text="Quatity"
+                android:layout_marginStart="16dp"
+                android:text="Quantity"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/foodimage"
+                app:layout_constraintStart_toEndOf="@+id/foodImage"
                 app:layout_constraintTop_toBottomOf="@+id/foodName"
-                app:layout_constraintVertical_bias="0.564" />
+                app:layout_constraintVertical_bias="0.5" />
 
             <TextView
                 android:id="@+id/foodPrice"
@@ -74,11 +73,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="49"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.492" />
+                app:layout_constraintVertical_bias="0.5" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
