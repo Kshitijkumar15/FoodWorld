@@ -14,6 +14,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:text="Edit" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"

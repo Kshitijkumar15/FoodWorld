@@ -68,7 +68,7 @@ class OrderDetails() : Serializable {
         this.paymentReceived = b1
     }
 
- fun writeToParcel(parcel: Parcel, flags: Int) {
+    fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(userUid)
         parcel.writeString(userName)
         parcel.writeString(address)
@@ -86,7 +86,7 @@ class OrderDetails() : Serializable {
         parcel.writeIntArray(foodQuantities?.toIntArray())
     }
 
-   fun describeContents(): Int {
+    fun describeContents(): Int {
         return 0
     }
 

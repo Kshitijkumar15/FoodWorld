@@ -17,10 +17,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class ProfileFragment : Fragment() {
-private lateinit var binding:FragmentProfileBinding
+    private lateinit var binding: FragmentProfileBinding
 
-private var auth=FirebaseAuth.getInstance()
-    private var database=FirebaseDatabase.getInstance()
+    private var auth = FirebaseAuth.getInstance()
+    private var database = FirebaseDatabase.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,49 +32,63 @@ private var auth=FirebaseAuth.getInstance()
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentProfileBinding.inflate(inflater,container,false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         setUserData()
+        binding.apply {
+            nameProfile.isEnabled = false
+            emailProfile.isEnabled = false
+            phoneProfile.isEnabled = false
+            addressProfile.isEnabled = false
+
+        binding.editButton.setOnClickListener {
+
+                nameProfile.isEnabled = !nameProfile.isEnabled
+                emailProfile.isEnabled = !emailProfile.isEnabled
+                addressProfile.isEnabled = !addressProfile.isEnabled
+                phoneProfile.isEnabled = !phoneProfile.isEnabled
+            }
+        }
 
         binding.saveInfoButton.setOnClickListener {
-            val name=binding.pname.text.toString()
-            val address=binding.paddress.text.toString()
-            val email=binding.pemail.text.toString()
-            val phone=binding.pphone.text.toString()
+            val name = binding.pname.text.toString()
+            val address = binding.paddress.text.toString()
+            val email = binding.pemail.text.toString()
+            val phone = binding.pphone.text.toString()
 
-             updateUserData(name,address,email,phone)
+            updateUserData(name, address, email, phone)
         }
         return binding.root
 
     }
 
     private fun updateUserData(name: String, address: String, email: String, phone: String) {
-        val userId=auth.currentUser?.uid
-        if(userId !=null){
-            val userRef=database.getReference("user").child(userId)
-            val userData= hashMapOf(
+        val userId = auth.currentUser?.uid
+        if (userId != null) {
+            val userRef = database.getReference("user").child(userId)
+            val userData = hashMapOf(
                 "name" to name,
                 "address" to address,
                 "email" to email,
                 "phone" to phone
             )
             userRef.setValue(userData).addOnSuccessListener {
-                Toast.makeText(requireContext(),"Updated Successfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Updated Successfully", Toast.LENGTH_SHORT).show()
             }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(),"Failed",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
                 }
         }
     }
 
     private fun setUserData() {
-        val userId=auth.currentUser?.uid
-        if(userId !=null){
-            val userRef=database.getReference("user").child(userId)
-            userRef.addListenerForSingleValueEvent(object :ValueEventListener{
+        val userId = auth.currentUser?.uid
+        if (userId != null) {
+            val userRef = database.getReference("user").child(userId)
+            userRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if(snapshot.exists()){
-                        val userProfile=snapshot.getValue(UserModel::class.java)
-                        if(userProfile!=null){
+                    if (snapshot.exists()) {
+                        val userProfile = snapshot.getValue(UserModel::class.java)
+                        if (userProfile != null) {
                             binding.pname.setText(userProfile.name)
                             binding.paddress.setText(userProfile.address)
                             binding.pemail.setText(userProfile.email)

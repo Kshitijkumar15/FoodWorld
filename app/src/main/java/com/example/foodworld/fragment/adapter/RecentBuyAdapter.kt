@@ -10,9 +10,9 @@ import com.example.foodworld.databinding.RecentbuyitemBinding
 
 class RecentBuyAdapter(
     private var context: Context,
-    private var foodNameList: ArrayList<String>,
-    private var foodPriceList: ArrayList<String>,
-    private var foodImageList: ArrayList<String>,
+    private var foodNameList: MutableList<String>,
+    private var foodPriceList: MutableList<String>,
+    private var foodImageList: MutableList<String>,
     private var foodQuantityList: ArrayList<Int>,
 ) : RecyclerView.Adapter<RecentBuyAdapter.RecentViewHolder>() {
 
