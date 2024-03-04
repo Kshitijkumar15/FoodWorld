@@ -21,7 +21,10 @@ Verify your email address through the provided link (if required).
 Create new notes by clicking the "New Note" button.
 View and edit existing notes by selecting them from the list.
 Delete a note by clicking the delete button within the note view.
-<div align="center">
+
+### Description
+FoodWorld is an intuitive application that allows you to capture your food-related thoughts, manage tasks, and explore new culinary adventures. 
+The app seamlessly integrates with Firebase for user authentication and data storage, offering features such as user login, sign-up, logout, forgot password, and email verification. With FoodWorld, you can effortlessly create, view, edit, and delete notes, providing you with a versatile tool to organize your culinary ideas and experiences.
   
 ### Screenshots
 
@@ -34,15 +37,5 @@ Delete a note by clicking the delete button within the note view.
 ![Screenshot_20240304-135302~2](https://github.com/Kshitijkumar15/FoodWorld/assets/66892634/98186ea7-9e1f-4490-9f32-40078ead686b)
 
 
-### Description
-FoodWorld is an intuitive application that allows you to capture your food-related thoughts, manage tasks, and explore new culinary adventures. 
-The app seamlessly integrates with Firebase for user authentication and data storage, offering features such as user login, sign-up, logout, forgot password, and email verification. With FoodWorld, you can effortlessly create, view, edit, and delete notes, providing you with a versatile tool to organize your culinary ideas and experiences.
 
-## Contact
 
-Author: [Your Name]
-Email: [your.email@example.com]
-GitHub: YourGitHubUsername
-Feedback
-
-If you have any feedback, please reach out to me at [your.email@example.com].
